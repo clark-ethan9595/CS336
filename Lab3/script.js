@@ -1,0 +1,1 @@
+console.log("Lab3 - CS336: Hello, Professor Vander Linden!");

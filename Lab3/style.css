@@ -1,0 +1,19 @@
+/* style.css creates some style/design options for Index.html
+ * Created by: Ethan Clark (elc3)
+ * Date: September 20, 2016
+ * CS 336 - Lab3
+ */
+
+body {
+    font-family: "Verdana", sans-serif;
+    background-color: maroon;
+}
+
+h1 {
+	color: gold;
+	margin-left: 20px;
+}
+
+li {
+	color: gold;
+}

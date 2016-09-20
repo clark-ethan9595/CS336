@@ -1,0 +1,1 @@
+This is a sample text file for Lab3, practicing serving up static files.
