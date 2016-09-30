@@ -1,0 +1,149 @@
+/* Color for paragraph elements */
+p {
+	color: blue;
+}
+
+/* Image before each of the paragraph elements */
+#first:before {
+	content: url(Yellow-pin.png);
+}
+
+/* Image before each of the paragraph elements */
+#second:before {
+	content: url(Yellow-pin.png);
+}
+
+/* Color for Strong elements */
+strong {
+	color: red;
+	font: 200% serif;
+}
+
+/* Color for elements with the class .spinach */
+.spinach {
+	color: green;
+}
+
+/* Italicize elements with the ID first */
+#first { 
+	font-style: italic;
+}
+
+/* Change size, style, and font of Body elements */
+body {
+	font: 16px "Comic Sans MS", cursive;
+	background: url(Blue-rule.png);
+}
+
+/* Set up the counter for the Numbered Paragraphs section */
+h3.numbered {
+	counter-reset: headnum;
+}
+
+/* Use CSS to list the numbers and increment them accordingly */
+p.numbered:before {
+	content: "(" counter(headnum, upper-latin) ") ";
+	counter-increment: headnum;
+}
+
+/* Change the p.numbered color text to be black */
+p.numbered {
+	color: black;
+}
+
+/* Add a border around the lists for the page */
+ul, #border {
+	border: 10px solid lightblue;
+	display: inline-block;
+}
+
+/* Number the ocean list with lower case roman numerals */
+li {
+	list-style: lower-roman;
+}
+
+#fixed-pin {
+	position: fixed;
+	top: 3px;
+	right: 3px;
+}
+
+/* Formatting rules for the table */
+#demo-table {
+  font: 100% sans-serif;
+  background-color: #efe;
+  border-collapse: collapse;
+  empty-cells: show;
+  border: 1px solid #7a7;
+}
+
+#demo-table > caption {
+  caption-side: bottom;
+  text-align: right;
+  font-style: italic;
+  border-top: .2em solid #4ca;
+  margin-top: .5em;
+}
+
+/* basic shared rules */
+#demo-table th,
+#demo-table td {
+  text-align: right;
+  padding-right: .5em;
+}
+
+#demo-table th {
+  font-weight: bold;
+  padding-left: .5em;
+}
+
+/* header */
+#demo-table > thead > tr:first-child > th {
+  text-align: center;
+  color: blue;
+}
+
+#demo-table > thead > tr + tr > th {
+  font-style: italic;
+  color: gray;
+}
+
+/* fix size of superscript */
+#demo-table sup {
+  font-size: 75%;
+}
+
+/* body */
+#demo-table td {
+  background-color: #cef;
+  padding:.5em .5em .5em 3em;
+}
+
+#demo-table tbody th:after {
+  content: ":";
+}
+
+/* footer */
+#demo-table tfoot {
+  font-weight: bold;
+}
+
+#demo-table tfoot th {
+  color: blue;
+}
+
+#demo-table tfoot th:after {
+  content: ":";
+}
+
+#demo-table > tfoot td {
+  background-color: #cee;
+}
+
+#demo-table > tfoot > tr:first-child td {
+  border-top: .2em solid #7a7;
+}
+
+#demo-table tbody td {
+	border:1px solid #7a7;
+}
