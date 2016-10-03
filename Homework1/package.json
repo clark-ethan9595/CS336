@@ -1,8 +1,12 @@
 {
-  "name": "lab04",
+  "name": "homework1",
   "version": "1.0.0",
-  "description": "Lab04 for CS336 Web Development",
+  "description": "Homework1 for CS336",
   "main": "server.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
