@@ -1,6 +1,6 @@
 /* CS 336 Web Development
  * Homework 1 - Webserver to store a set of people records for an organization
- *  Ethan Clark (elc3)
+ * Ethan Clark (elc3)
  * October 2, 2016
  */
 
@@ -56,11 +56,11 @@ app.get('/people', function(req, res) {
 
 // Write out the full record of the employee with the given ID if /person/:ID URL is found
 app.get('/person/:ID', function(req, res) {
-	console.log('Full record of the person with the given ID!');
 	var loginID = req.params.ID;
 	for (i = 0; i < employee_list.length; i++) {
 		if (loginID == employee_list[i].ID_Num) {
 			res.json(employee_list[i]);
+			console.log('Full record of the person with the given ID!');
 			return;
 		}
 	}
@@ -69,11 +69,11 @@ app.get('/person/:ID', function(req, res) {
 
 // Write out the first and last name of the employee with the given ID if /person/:ID/name URL is found
 app.get('/person/:ID/name', function(req, res) {
-	console.log('Full name of the person with the given ID!');
 	var loginID = req.params.ID;
 	for (i = 0; i < employee_list.length; i++) {
 		if (loginID == employee_list[i].ID_Num) {
 			res.json(employee_list[i].first + " " + employee_list[i].last);
+			console.log('Full name of the person with the given ID!');
 			return;
 		}
 	}
@@ -82,15 +82,21 @@ app.get('/person/:ID/name', function(req, res) {
 
 // Write out how many years the employee with the given ID has worked at the company if /person/:ID/years URL is found
 app.get('/person/:ID/years', function(req, res) {
-	console.log('How many years the individual worked with the organization!');
 	var loginID = req.params.ID;
 	for (i = 0; i < employee_list.length; i++) {
 		if (loginID == employee_list[i].ID_Num) {
 			var temp_years = employee_list[i].getYears();
 			res.json(employee_list[i].first + " has worked here " + temp_years + " years!");
+			console.log('How many years the individual worked with the organization!');
 			return;
 		}
 	}
+	res.sendStatus(404);
+});
+
+// Capture any wrong URL for this WebServer and serve up a 404 Not Found error
+app.all('*', function(req, res) {
+	console.log("Wrong URL or ID Number not found.")
 	res.sendStatus(404);
 });
 
