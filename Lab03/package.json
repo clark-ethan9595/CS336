@@ -1,16 +1,11 @@
 {
-  "name": "lab3",
+  "name": "lab03",
   "version": "1.0.0",
-  "description": "",
+  "description": "Lab03 for CS336 Web Development",
   "main": "lab3.js",
-  "dependencies": {
-    "express": "^4.14.0"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-    "start": "node lab3.js"
   },
-  "author": "elc3",
+  "author": "ethanclark (elc3)",
   "license": "ISC"
 }
