@@ -1,0 +1,84 @@
+/* 
+ * style.sty uses Stylus as a pre-processor for CSS
+ * Ethan Clark (elc3)
+ * October 5, 2015
+ */
+
+// Declare variables for multi-use things
+pad_size = 15px
+black_border = #000000
+bord_size = 2px
+
+body
+    font: 24px Helvetica
+    background: #999999
+
+p
+    margin: 0px
+
+#main
+    min-height: 550px
+    margin: 0px
+    padding: 0px
+    display: flex
+    flex-flow: row
+
+// Middle box; nesting
+    article
+        margin: 0px
+        padding: pad_size
+        border: bord_size solid black_border
+        background: #dddd88
+        flex: 3 1 60%
+        order: 2
+
+// First box; nesting
+    nav
+        text-align: right
+        margin: 0px
+        padding: pad_size
+        border: bord_size solid black_border
+        background: #ccccff
+        flex: 1 6 20%
+        order: 1
+        font: sans-serif
+        font-weight: bold
+
+// Last box; nesting 
+    aside
+        margin: 0px
+        padding: pad_size
+        border: bord_size solid black_border
+        background: #ccccff
+        flex: 1 6 20%
+        order: 3
+        font: Arial
+        font-style: italic
+ 
+header, footer
+    display: block
+    margin: 0px
+    padding: 5px
+    min-height: 100px
+    border: 1px solid black_border
+    background: #ffeebb
+
+header
+    font-size: 150%
+    font-weight: bold
+
+footer
+    font-size: 50%
+
+// Too narrow to support three columns
+//  Responsive style layout
+@media all and (max-width: 640px)
+    #main, #page
+        flex-direction: column
+  
+    #main > nav, #main > aside, header, footer
+        min-height: 75px
+        max-height: 75px
+
+    #main > nav
+        text-align: left

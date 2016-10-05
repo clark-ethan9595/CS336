@@ -1,0 +1,80 @@
+/* 
+ * style.sty uses Stylus as a pre-processor for CSS
+ * Ethan Clark (elc3)
+ * October 5, 2015
+ */
+body {
+  font: 24px Helvetica;
+  background: #999;
+}
+p {
+  margin: 0px;
+}
+#main {
+  min-height: 550px;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-flow: row;
+}
+article {
+  margin: 0px;
+  padding: 15px;
+  border: 2px solid #000;
+  background: #dd8;
+  flex: 3 1 60%;
+  order: 2;
+}
+nav {
+  text-align: right;
+  margin: 0px;
+  padding: 15px;
+  border: 2px solid #000;
+  background: #ccf;
+  flex: 1 6 20%;
+  order: 1;
+  font: sans-serif;
+  font-weight: bold;
+}
+aside {
+  margin: 0px;
+  padding: 15px;
+  border: 2px solid #000;
+  background: #ccf;
+  flex: 1 6 20%;
+  order: 3;
+  font: Arial;
+  font-style: italic;
+}
+header,
+footer {
+  display: block;
+  margin: 0px;
+  padding: 5px;
+  min-height: 100px;
+  border: 1px solid #000;
+  background: #feb;
+}
+header {
+  font-size: 150%;
+  font-weight: bold;
+}
+footer {
+  font-size: 50%;
+}
+@media all and (max-width: 640px) {
+  #main,
+  #page {
+    flex-direction: column;
+  }
+  #main > nav,
+  #main > aside,
+  header,
+  footer {
+    min-height: 75px;
+    max-height: 75px;
+  }
+  #main > nav {
+    text-align: left;
+  }
+}
