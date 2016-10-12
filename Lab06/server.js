@@ -48,7 +48,7 @@
   *
   * This script, server.js, receives the data as a list of 3 key/value items embodied in the HTTP request. We handle it using
   *		the 'name' attributes assigned with the three input types in index.html. JavaScript/Express uses a module called body-parser to
-  *		parse the req.body information that got sent to the server.
+  *		parse the req.body information that got sent to the server. It uses a '{"arg":"value"}' form.
   *
   */
 
@@ -81,8 +81,13 @@ app.put('/request', function(req, res) {
 });
 
 // Use the HTTP POST method
-//		Updated to work for the HTML forms page for Exercise 6.2
 app.post('/request', function(req, res) {
+	res.send('Hello POST! ' + req.body.Ethan);
+});
+
+// Use the HTTP POST method
+//		Updated to work for the HTML forms page for Exercise 6.2
+app.post('/forms', function(req, res) {
 	res.send('Hello form, elc3!<br>Name: ' + req.body.user_name +
 		'<br>Email: ' + req.body.user_mail + '<br>Posted message: ' + req.body.user_message);
 });
