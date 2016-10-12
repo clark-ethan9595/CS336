@@ -1,0 +1,33 @@
+<!--
+    index.html uses HTML forms to get input from the user
+    Created by: Ethan Clark (elc3)
+    October 12, 2016
+    Lab06 for CS336 Web Development
+-->
+
+<html>
+    <head>
+        <title>Lab 06 (elc3)</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <form action="/request" method="post">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="user_name" />
+            </div>
+            <div>
+                <label for="mail">E-mail:</label>
+                <input type="email" id="mail" name="user_mail" />
+            </div>
+            <div>
+                <label for="msg">Message:</label>
+                <textarea id="msg" name="user_message"></textarea>
+            </div>
+    
+            <div class="button">
+                <button type="submit">Send your message</button>
+            </div>
+        </form>
+    </body>
+</html>

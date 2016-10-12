@@ -1,0 +1,16 @@
+{
+  "name": "lab06",
+  "version": "1.0.0",
+  "description": "Lab06 for CS336 Web Development",
+  "main": "server.js",
+  "scripts": {
+    "start": "kill $(pgrep node) ; node server.js &"
+  },
+  "author": "ethanclark (elc3)",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "http-status-codes": "^1.0.6"
+  }
+}
