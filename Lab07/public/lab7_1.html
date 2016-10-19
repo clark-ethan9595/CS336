@@ -1,0 +1,64 @@
+<!--
+     jQuery examples
+     Lab07 for CS 336
+     Ethan Clark (elc3)
+     October 19, 2016
+   -->
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lab07 Demo with jQuery</title>
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
+
+    <style>
+		a.test {
+    		font-weight: bold;
+		}
+	</style>
+
+</head>
+<body>
+    <a href="http://jquery.com/">jQuery</a>
+    <script>
+ 
+ 	// Using the .ready() function inside the script body
+	$( document ).ready(function() {
+
+		// First .click() event handler exercise for the hyperlink
+		/*
+		$( "a" ).click(function( event ) {
+        alert( "Thanks for visiting!" );
+    	});
+    	*/
+
+		// Second .click() event handler exercise for the hyperlink
+ 		/*
+ 		$( "a" ).click(function( event ) {
+       	alert( "As you can see, the link no longer took you to jquery.com" );
+        	event.preventDefault();
+    	});
+		*/
+
+		// Third .click() event handler exercise for the hyperlink
+    	$( "a" ).click(function( event ) {
+    	event.preventDefault();
+    	$( this ).hide( "slow" );
+		});
+
+    	// Make the <a> elements bold
+    	$( "a" ).addClass( "test" );
+
+    	// Creating a new DOM element and adding it to the document
+    	var myNewParagraph = $("<p>", {
+    		html: "This is a <strong> test </strong> paragraph using jQuery.",
+    		"class": "new",
+    	});
+    	myNewParagraph.appendTo("body");
+
+	});
+
+    </script>
+</body>
+</html>
