@@ -1,0 +1,20 @@
+{
+  "name": "homework2",
+  "version": "1.0.0",
+  "description": "homework2 for CS336",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "http-status-codes": "^1.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "start": "kill $(pgrep node); nodemon --ignore public/ server.js &",
+    "stop": "kill $(pgrep node)"
+  },
+  "author": "ethan clark (elc3)",
+  "license": "ISC"
+}
