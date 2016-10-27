@@ -1,0 +1,37 @@
+Lab08 for Ethan Clark (elc3)
+CS 336 Web Development
+10/26/2016
+
+Exercise 8.2
+
+Part A - Make sure to explain...
+
+i. the component structure of the application. What makes the UI composable and why does this matter?
+	You do not have to return basic HTML. You can return a tree of componenets that you (or someone else) built. This is what makes React composable: a key tenant of maintable frontends.
+
+ii. what JSX does.
+	JSx is concise and familiar syntax for defining tree structures with attributes because it is similar to XML, which has the benefit of balanced opening and closing tags (which unfortunately does not get recognize well if you are using the Sublime Text Editor). JSx is a JavaScript extension and you can use a syntactic transform with React to transform it into native JavaScript.
+
+iii. how the data flows through the components; how are comments loaded? Created? Saved?
+	The data flows through components with this.props.author and this.props.children.
+	Comments are loaded through the loadCommentsFromServer method in CommentBox, which uses AJAX to call to the server and get JSON formated data.
+	Created through handleSubmit methods in the CommentBox and CommentForm components.
+	Saved by writing it out to the comments.JSON file.
+
+
+iv. the nature and purpose of props and state; which is immutable and which is mutable and why does this distinction matter?
+	State is mutable and props are immutable. State gets updated while the props get passed through the components and should not be changed as they are getting passed through.
+
+Part B
+
+i. Try editing the comments.json file (to add or remove a legal comment). What happens and why?
+	Adding a legal comment while the server is running and saving the comments.json file automatically updates the web page once the file is saved. This happens because the entire CommentBox React class is "polling" at intervals to see if the comments have changed. According to the tutorial reading, the comments should appear on the web page in at slowest 2 seconds. The polling is done through the componentDidMount function in CommentBox.
+
+ii. When the CommentBox has loaded comments from the server (in loadCommentsFromServer()), why doesn’t it call render() to make them visible?
+	The CommentBox does not call render to make them visible because this is done automatically through the STATE. this.state is private to the comeponent and when the state updates (i.e. when the comments are loaded from the server) the component re-renders itself automatically.
+
+iii. Why should components always represent the current state of the view?
+	Components should always represent the current state of the view because this helps establishes and maintains Model-View separation. With the model/state separate from the view, you can manipulate the state, which in turn updates and represents the view. If you were to change the view aspect of the program, this may change the functionality directly.
+
+iv. The app implements optimistic updates. Isn’t optimism here more like foolishness? What if the server rejects the new comment (for whatever reason)?
+	I think that in this case, being optimistic with the updates is okay because there are not huge/a lot of dependencies on the information being sent in. All that is being updated is one part of the web page, which is not a huge undertaking if it fails. If it fails, we could just notify the user why and return the web page to how it was. If this comment had more dependencies on it (i.e. maybe it was getting sent to a secure location first and then back to the web page), we would not be optimistic because of those dependencies.
