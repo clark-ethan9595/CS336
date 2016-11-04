@@ -156,10 +156,19 @@ app.post('/person/:ID', function(req, res) {
 	res.sendStatus(404);
 });
 
-// Use the HTML PUT method to show this application can use this method
+// Use the HTML PUT method to update an Employee's information
 app.put('/person/:ID', function(req, res) {
 
-	res.send('Hello, Homework2. Got request to PUT for employee with ID Number: ' + req.params.ID);
+	var loginID = req.params.ID;
+	for (i = 0; i < employee_list.length; i++) {
+		if (loginID == employee_list[i].ID_Num) {
+			employee_list[i].first = req.body.first;
+			employee_list[i].last = req.body.last;
+			employee_list[i].ID_Num = req.body.id_num;
+			employee_list[i].startDate = req.body.startDate;
+			res.send('Thank you for updating employee with ID number ' + req.params.ID);
+		}
+	}
 });
 
 // Delete a particular Person record from the employee_list data
