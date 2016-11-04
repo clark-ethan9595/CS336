@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1388534400000,
+        "author": "Pete Hunt",
+        "text": "Hey there!"
+    },
+    {
+        "id": 1420070400000,
+        "author": "Paul O’Shannessy",
+        "text": "React is <em>great</em>!"
+    },
+    {
+        "id": 1464988717637,
+        "author": "evil",
+        "text": "<a href=\"javascript:alert(1)\">alert(1)</a>"
+    },
+    {
+        "id": 1477331611675,
+        "author": "Ethan",
+        "text": "This is awesome!"
+    },
+    {
+        "id": 1495001234556,
+        "author": "Mark",
+        "text": "Heck year"
+    },
+    {
+        "id": 100,
+        "author": "Emily",
+        "text": "Ethan is the best"
+    },
+    {
+        "id": 1478107166150,
+        "author": "Mark Davis",
+        "text": "CS 336 is the best"
+    },
+    {
+        "id": 1478277210673,
+        "author": "Russ",
+        "text": "Hey"
+    }
+]

@@ -1,0 +1,45 @@
+Questions from Lab09
+Ethan Clark (elc3)
+November 2, 2016
+
+Exercise 9.1
+a. What good has bundling done? Check the Chrome DevTools network log to see what files are being loaded.
+	Bundling allowed it so that currently, the browser loads the many scripts from our index.html head section, the css file from the head section, and the bundle.js file, which contains all the information needed currently (as far as Exercise 9.1 is concerned) to run the SPA. It brought all the information into one file.
+
+b. What role did Babel play in the building?
+	When our Webpack runs the Babel compilation, it will support React JSX and ES2015 for JavaScript, which is exactly what we specified in the .babelrc file under the presets section.
+
+c. Can you just load file:///path.../index.html using the browser? Why or why not?
+	If you access the index.html file stored in the dist directory, it loads up only part of the HTML page (the Comments title and the input items for author and comment). It does not load the previously left comments because the server is not running, so there are no comments in the CommentList section of the page.
+
+d. In webpack.config.js, what does the entry test: /\.jsx?$/ do?
+	This entry test tests that webpack has loaded the JSX loader properly...? Not quite sure about this one...
+
+
+Exercise 9.2
+a. Check out the new dist/index.html and dist/bundle.js. How are they different from the previous versions?
+	The bundle.js file now has all the necessary libraries downloaded in that files (again so that you only download one file to the browser on the URL request) and the index.html file contains the script resource for bundle.js and one div section.
+
+
+b. What good is it to replace the CDN library loads with module imports?
+	Now, there is no need to go via the web to those sites to get the necessary files. This information is stored in the bundle.js file now so the browser does not need to download files for all of those libraries when we did it via CDNs.
+
+
+c. Check the network log. How many of the new modules you built are being loaded? How about the CSS file?
+	Only bundle.js; everything (the necessary libraries and the css file) is all in the bundled bundle.js file.
+
+
+Exercise 9.3
+a. Try out both ports and explain the difference between them.
+
+	When I added a comment to the http//:localhost:3001, it added it to the web page and then it was also there in the http://localhost:3000 port web page instantly.
+
+	i. localhost:3001 - Try editing one of the React module files. Explain what happens both to the displayed SPA webpage and to the bundle/index files.
+		When you hit save on the changes in one of the React module files, everything gets rebundled, everything gets stored in WebDev server memory, and then kicks the browser to udpate the page without having to hit refresh or reload button.
+
+	ii. localhost:3000 - Try loading /api/comments. Explain what you get.
+		This url site outputs the comments.json file (all the comments in that file) on the browser in JSON format.
+
+b. Is it worth all this trouble to build a development configuration?
+	Probably... But I am not exactly sure why...
+
