@@ -17,7 +17,6 @@ var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
-var password;
 
 // Added for Lab10; using MongoDB
 var MongoClient = require('mongodb').MongoClient;
@@ -64,7 +63,7 @@ app.listen(PORT, HOST, () => {
 });
 
 // Connect to the MongoDB
-MongoClient.connect('mongodb://cs336:' + password + '@ds147797.mlab.com:47797/cs336', function (err, dbConnection) {
+MongoClient.connect('mongodb://cs336:' + process.env.password + '@ds147797.mlab.com:47797/cs336', function (err, dbConnection) {
 	if (err) { throw err; }
 	db = dbConnection;
 });
