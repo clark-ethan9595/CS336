@@ -63,6 +63,7 @@ app.listen(PORT, HOST, () => {
     console.log("Lab11 listening on " + HOST + ":" + PORT + "...");
 });
 
+// Connect to the MongoDB
 MongoClient.connect('mongodb://cs336:' + password + '@ds147797.mlab.com:47797/cs336', function (err, dbConnection) {
 	if (err) { throw err; }
 	db = dbConnection;
