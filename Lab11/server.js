@@ -63,7 +63,7 @@ app.listen(PORT, HOST, () => {
 });
 
 // Connect to the MongoDB
-MongoClient.connect('mongodb://cs336:' + process.env.password + '@ds147797.mlab.com:47797/cs336', function (err, dbConnection) {
+MongoClient.connect('mongodb://cs336:bjarne@ds147797.mlab.com:47797/cs336', function (err, dbConnection) {
 	if (err) { throw err; }
 	db = dbConnection;
 });
