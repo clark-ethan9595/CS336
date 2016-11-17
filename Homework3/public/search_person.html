@@ -1,0 +1,53 @@
+<!--
+    search_person.html uses an HTML form to display a particular employee based on ID number
+    Created by: Ethan Clark (elc3)
+    Homework2 for CS336 Web Development
+    October 24, 2016
+  -->
+
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Search Employee</title>
+        <link rel="stylesheet" href="base/style.css" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+        <script src="//code.jquery.com/jquery-latest.min.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    </head>
+
+    <body>
+
+    	<form method="post">
+
+            <h2>Please enter the ID Number for the Employee:</h2>
+
+            <div>
+                <label for="name">ID Number:</label>
+                <input type="text" id="ID_Num" name="user_idnumber" />
+            </div>
+
+            <div class="button">
+                <button type="submit">Get Person Information</button>
+            </div>
+
+            <div id="block">
+
+        		<div id="LineOne">
+        		</div>
+
+        		<div id="LineTwo">
+        		</div>
+
+        		<div id="LineThree">
+        		</div>
+
+        	</div>
+
+        </form>
+
+        <script src="scripts/search_person.js"></script>
+
+    </body>
+
+</html>
