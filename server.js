@@ -22,9 +22,7 @@ var MongoClient = require('mongodb').MongoClient;
 var db;
 var APP_PATH = path.join(__dirname, 'dist');
 
-// Set const variables
-const HOST = "localhost";
-const PORT = 3000;
+app.set('port', (process.env.PORT || 3000));
 
 app.use('/', express.static(APP_PATH));
 app.use(bodyParser.json());
@@ -52,7 +50,10 @@ app.post('/api/comments', function(req, res) {
     };
     db.collection("comments").insertOne(newComment, function(err, result) {
         if (err) throw err;
-        res.json(result);
+        db.collection("comments").find({}).toArray(function(err, docs) {
+            if (err) throw err;
+            res.json(docs);
+        });
     });
 });
 
@@ -94,8 +95,8 @@ app.delete('/api/comments/:id', function(req, res) {
 app.use('*', express.static(APP_PATH));
 
 // Show that the app is listening on PORT and HOST
-app.listen(PORT, HOST, () => {
-    console.log("Lab12 listening on " + HOST + ":" + PORT + "...");
+app.listen(app.get('port'), function() {
+    console.log("Lab12 listening on http://localhost:" + app.get('port') + "/");
 });
 
 // Connect to the MongoDB
