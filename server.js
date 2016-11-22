@@ -12,7 +12,6 @@
 
 /***** Provided to use through the React Facebook Tutorial *******/
 
-var fs = require('fs');
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -20,10 +19,8 @@ var app = express();
 
 // Added for Lab10; using MongoDB
 var MongoClient = require('mongodb').MongoClient;
-var assert = require('assert');
 var db;
 var APP_PATH = path.join(__dirname, 'dist');
-var password;
 
 // Set const variables
 const HOST = "localhost";
@@ -42,7 +39,7 @@ app.use(function(req, res, next) {
 
 app.get('/api/comments', function(req, res) {
     db.collection("comments").find({}).toArray(function(err, docs) {
-    	assert.equal(err, null);
+    	if (err) throw err;
     	res.json(docs);
     });
 });
@@ -54,7 +51,7 @@ app.post('/api/comments', function(req, res) {
         text: req.body.text,
     };
     db.collection("comments").insertOne(newComment, function(err, result) {
-        assert.equal(err, null);
+        if (err) throw err;
         res.json(result);
     });
 });
@@ -102,7 +99,9 @@ app.listen(PORT, HOST, () => {
 });
 
 // Connect to the MongoDB
-MongoClient.connect('mongodb://cs336:bjarne@ds147797.mlab.com:47797/cs336', function (err, dbConnection) {
+var mongoURL = 'mongodb://cs336:'+ process.env.MONGO_PASSWORD +
+                    '@ds147797.mlab.com:47797/cs336';
+MongoClient.connect(mongoURL, function (err, dbConnection) {
 	if (err) { throw err; }
 	db = dbConnection;
 });
